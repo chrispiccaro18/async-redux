@@ -1,8 +1,35 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from './components/App';
+import { createStore, applyMiddleware, compose } from 'redux';
+// import App from './components/App';
 
-render(
-  <App />,
-  document.getElementById('root')
-);
+const reducer = (state, action) => {
+  const { type } = action;
+  switch(type) {
+    default:
+      return state;
+  }
+}
+
+const logger = store => next => action => {
+  console.log(action);
+}
+
+const store = createStore(
+  reducer,
+  compose(
+    applyMiddleware(
+      logger
+    ),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+)
+
+store.dispatch({
+  type: 'Hello'
+})
+
+// render(
+//   <App />,
+//   document.getElementById('root')
+// );
