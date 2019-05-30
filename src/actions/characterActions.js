@@ -1,10 +1,8 @@
 import { getCharacters } from '../services/lastAirbenderApi';
+import { createAction } from 'promise-middleware-redux';
 
-export const FETCH_CHARACTERS = 'FETCH_CHARACTERS';
-export const FETCH_CHARACTERS_LOADING = 'FETCH_CHARACTERS_LOADING';
-
-
-export const fetchCharacters = () => ({
-  type:FETCH_CHARACTERS,
-  payload: getCharacters()
-});
+export const [
+  fetchCharacters,
+  FETCH_CHARACTERS,
+  FETCH_CHARACTERS_LOADING,
+] = createAction('FETCH_CHARACTERS', getCharacters);
