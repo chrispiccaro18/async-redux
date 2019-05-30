@@ -20,7 +20,7 @@ class AllCharacters extends PureComponent {
     const { loading, characters } = this.props;
     if(loading) return <h1>LOADING</h1>;
 
-    <Characters characters={characters} />;
+    return <Characters characters={characters} />;
   }
 }
 

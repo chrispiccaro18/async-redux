@@ -9,6 +9,7 @@ import reducer from './reducers';
 // eslint-disable-next-line no-unused-vars
 const logger = store => next => action => {
   console.log(action);
+  next(action);
 };
 
 const store = createStore(

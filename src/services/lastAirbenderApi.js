@@ -5,7 +5,6 @@ export function getCharacters() {
     .then(res => ([res.ok, res.json()]))
     .then(([ok, body]) => {
       if(!ok) throw 'Could not fetch characters';
-
       return body;
     });
 }

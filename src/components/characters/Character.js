@@ -14,7 +14,7 @@ function Character({ character }) {
 Character.propTypes = {
   character: PropTypes.shape({
     _id: PropTypes.string.isRequired,
-    photoUrl: PropTypes.string.isRequired,
+    photoUrl: PropTypes.string,
     name: PropTypes.string.isRequired
   })
 };
