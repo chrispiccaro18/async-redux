@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import App from './components/App';
 
 const reducer = (state, action) => {
@@ -21,7 +22,8 @@ const store = createStore(
   reducer,
   compose(
     applyMiddleware(
-      logger
+      logger,
+      thunk
     ),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
