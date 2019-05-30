@@ -1,7 +1,8 @@
-// import React from 'react';
-// import { render } from 'react-dom';
+import React from 'react';
+import { render } from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
-// import App from './components/App';
+import { Provider } from 'react-redux';
+import App from './components/App';
 
 const reducer = (state, action) => {
   const { type } = action;
@@ -26,11 +27,9 @@ const store = createStore(
   )
 );
 
-store.dispatch({
-  type: 'Hello'
-});
-
-// render(
-//   <App />,
-//   document.getElementById('root')
-// );
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
