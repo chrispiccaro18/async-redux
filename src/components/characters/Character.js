@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function Character({ character }) {
-  const { photoUrl, name } = character;
+  const { photoUrl, name, _id } = character;
   return (
-    <li>
-      <img src={photoUrl} alt={`Image of ${name}`} />
-      <h3>{name}</h3>
-    </li>
+    <Link to={`/character/${_id}`}>
+      <li>
+        <img src={photoUrl} alt={`Image of ${name}`} />
+        <h3>{name}</h3>
+      </li>
+    </Link>
   );
 }
 
